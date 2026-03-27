@@ -1,7 +1,3 @@
-"""
-Streamlit dashboard: Telco customer churn (Case Study 2).
-Run: streamlit run app.py
-"""
 import matplotlib.pyplot as plt
 import streamlit as st
 
@@ -20,10 +16,6 @@ ANALYTICS_CLASSIFICATION = """
 Together, these layers answer “what happened,” “why,” “who will churn,” and “what should we do.”
 """
 
-LIMITATIONS = """
-**Limitations:** The model learns associations in the data, not causal effects. Interventions should be validated with experiments (e.g. A/B tests). The snapshot may not capture seasonality or competitive changes.
-"""
-
 
 @st.cache_resource
 def load_pipeline():
@@ -37,7 +29,7 @@ def show_fig(fig):
 
 def main():
     st.title("Case Study 2: Customer Churn Analysis")
-    st.caption("IBM Telco Customer Churn — descriptive, predictive, and prescriptive analytics")
+    st.caption("Telecom Customer Churn — descriptive, predictive, and prescriptive analytics")
 
     with st.spinner("Loading data and training model (first run may take a minute)…"):
         result = load_pipeline()
@@ -61,7 +53,6 @@ def main():
             "Class balance: churn is typically **lower** than the retained class; "
             "the model uses balanced class weights so the minority class is not ignored."
         )
-        st.markdown(LIMITATIONS)
 
     with tab2:
         st.subheader("Churn trends (descriptive statistics)")
